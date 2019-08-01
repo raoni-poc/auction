@@ -3,30 +3,14 @@ CREATE SCHEMA admin;
 CREATE SCHEMA commons;
 CREATE SCHEMA customer_base;
 
-/********************************************
- *         SCHEMA places                    *
- ********************************************/
-
-CREATE TABLE places.cities
+CREATE TABLE places.countries
 (
-    id         integer GENERATED ALWAYS AS IDENTITY,
-    state_id   integer,
-    name       character varying,
-    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    deleted_at timestamp without time zone,
-    FOREIGN KEY (state_id) REFERENCES places.states (id)
-);
-
-CREATE TABLE places.states
-(
-    id         integer GENERATED ALWAYS AS IDENTITY,
-    region_id  integer,
-    name       character varying,
-    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    deleted_at timestamp without time zone,
-    FOREIGN KEY (region_id) REFERENCES places.regions (id)
+    id           integer GENERATED ALWAYS AS IDENTITY,
+    name         character varying,
+    abbreviation character varying,
+    created_at   timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at   timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    deleted_at   timestamp without time zone
 );
 
 CREATE TABLE places.regions
@@ -40,31 +24,28 @@ CREATE TABLE places.regions
     FOREIGN KEY (country_id) REFERENCES places.countries (id)
 );
 
-CREATE TABLE places.countries
+CREATE TABLE places.states
 (
-    id           integer GENERATED ALWAYS AS IDENTITY,
-    name         character varying,
-    abbreviation character varying,
-    created_at   timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    updated_at   timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    deleted_at   timestamp without time zone
+    id         integer GENERATED ALWAYS AS IDENTITY,
+    region_id  integer,
+    name       character varying,
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    deleted_at timestamp without time zone,
+    FOREIGN KEY (region_id) REFERENCES places.regions (id)
 );
 
-/********************************************
- *         SCHEMA admin                     *
- ********************************************/
-CREATE TABLE admin.customers
+CREATE TABLE places.cities
 (
-    id                integer GENERATED ALWAYS AS IDENTITY,
-    company_id        integer NOT NULL,
-    account_status_id integer NOT NULL,
-    obs               text,
-    created_at        timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    updated_at        timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    deleted_at        timestamp without time zone,
-    FOREIGN KEY (company_id) REFERENCES commons.company (id),
-    FOREIGN KEY (account_status_id) REFERENCES admin.account_status (id)
+    id         integer GENERATED ALWAYS AS IDENTITY,
+    state_id   integer,
+    name       character varying,
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    deleted_at timestamp without time zone,
+    FOREIGN KEY (state_id) REFERENCES places.states (id)
 );
+
 
 CREATE TABLE admin.account_status
 (
@@ -76,11 +57,7 @@ CREATE TABLE admin.account_status
     deleted_at  timestamp without time zone
 );
 
-/********************************************
- *         SCHEMA commons                   *
- ********************************************/
-
-CREATE TABLE commons.company
+CREATE TABLE commons.companies
 (
     id           integer GENERATED ALWAYS AS IDENTITY,
     name         character varying NOT NULL,
@@ -90,13 +67,26 @@ CREATE TABLE commons.company
     deleted_at   timestamp without time zone
 );
 
-CREATE TABLE commons.company_documents
+CREATE TABLE admin.customers
 (
-    company_id  integer NOT NULL,
-    document_id integer NOT NULL,
-    PRIMARY KEY (company_id, document_id),
-    FOREIGN KEY (company_id) REFERENCES commons.company (id),
-    FOREIGN KEY (document_id) REFERENCES commons.document (id)
+    id                integer GENERATED ALWAYS AS IDENTITY,
+    company_id        integer NOT NULL,
+    account_status_id integer NOT NULL,
+    obs               text,
+    created_at        timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at        timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    deleted_at        timestamp without time zone,
+    FOREIGN KEY (company_id) REFERENCES commons.companies (id),
+    FOREIGN KEY (account_status_id) REFERENCES admin.account_status (id)
+);
+
+CREATE TABLE commons.types_of_documents
+(
+    id         integer GENERATED ALWAYS AS IDENTITY,
+    type       character varying NOT NULL,
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    deleted_at timestamp without time zone
 );
 
 CREATE TABLE commons.documents
@@ -107,22 +97,29 @@ CREATE TABLE commons.documents
     created_at       timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     updated_at       timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     deleted_at       timestamp without time zone,
-    FOREIGN KEY (document_type_id) REFERENCES commons.document_type (id)
+    FOREIGN KEY (document_type_id) REFERENCES commons.types_of_documents (id)
 );
 
-CREATE TABLE commons.document
+CREATE TABLE commons.company_documents
+(
+    company_id  integer NOT NULL,
+    document_id integer NOT NULL,
+    PRIMARY KEY (company_id, document_id),
+    FOREIGN KEY (company_id) REFERENCES commons.companies (id),
+    FOREIGN KEY (document_id) REFERENCES commons.documents (id)
+);
+
+CREATE TABLE commons.users
 (
     id         integer GENERATED ALWAYS AS IDENTITY,
-    doc_type   character varying NOT NULL,
+    name       character varying NOT NULL,
+    email      character varying NOT NULL,
+    company_id integer,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
-    deleted_at timestamp without time zone
+    deleted_at timestamp without time zone,
+    FOREIGN KEY (company_id) REFERENCES commons.companies (id)
 );
-
-
-/********************************************
- *         SCHEMA customer_base             *
- ********************************************/
 
 CREATE TABLE customer_base.addresses
 (
@@ -161,6 +158,16 @@ CREATE TABLE customer_base.offers
     created_at      timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     updated_at      timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
     deleted_at      timestamp without time zone
+);
+
+CREATE TABLE customer_base.bids
+(
+    id         integer GENERATED ALWAYS AS IDENTITY,
+    offer_id   integer NOT NULL,
+    created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP,
+    deleted_at timestamp without time zone,
+    FOREIGN KEY (offer_id) REFERENCES customer_base.offers (id)
 );
 
 CREATE TABLE customer_base.password_resets
