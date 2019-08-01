@@ -13,8 +13,8 @@ class CreateRoutesTable extends Migration
      */
     public function up()
     {
-        Schema::create('routes', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('customer_base.routes', function (Blueprint $table) {
+            $table->bigIncrements('id')->unsigned();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ class CreateRoutesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('routes');
+        Schema::dropIfExists('customer_base.routes');
     }
 }

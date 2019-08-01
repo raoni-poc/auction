@@ -13,8 +13,8 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('commons.companies', function (Blueprint $table) {
+            $table->bigIncrements('id')->unsigned();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ class CreateCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('companies');
+        Schema::dropIfExists('commons.companies');
     }
 }

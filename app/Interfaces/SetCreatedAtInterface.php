@@ -4,7 +4,7 @@ namespace App\Interfaces;
 
 use DateTimeInterface;
 
-interface SetCreatedAt
+interface SetCreatedAtInterface
 {
-    public function setCreatedAt(DateTimeInterface $dateTime): self;
+    public function setCreatedAt(DateTimeInterface $dateTime): void;
 }

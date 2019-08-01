@@ -13,8 +13,8 @@ class CreateCitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('commons.cities', function (Blueprint $table) {
+            $table->bigIncrements('id')->unsigned();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ class CreateCitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('commons.cities');
     }
 }

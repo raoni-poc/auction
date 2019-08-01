@@ -13,8 +13,8 @@ class CreateAccountStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('account_status', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('commons.account_status', function (Blueprint $table) {
+            $table->bigIncrements('id')->unsigned();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ class CreateAccountStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account_status');
+        Schema::dropIfExists('commons.account_status');
     }
 }

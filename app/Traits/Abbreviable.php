@@ -6,10 +6,9 @@ trait Abbreviable
 {
     protected $abbreviation;
 
-    public function setAbbreviation(string $abbreviation): self
+    public function setAbbreviation(string $abbreviation): void
     {
         $this->abbreviation = $abbreviation;
-        return $this;
     }
 
     public function getAbbreviation(): string

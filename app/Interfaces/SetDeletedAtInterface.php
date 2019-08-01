@@ -8,5 +8,5 @@ use DateTimeInterface;
 
 interface SetDeletedAtInterface
 {
-    public function setDeletedAt(DateTimeInterface $dateTime): self;
+    public function setDeletedAt(DateTimeInterface $dateTime): void;
 }

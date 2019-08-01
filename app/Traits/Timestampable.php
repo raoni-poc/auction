@@ -9,15 +9,13 @@ trait Timestampable
     protected $createdAt;
     protected $updatedAt;
 
-    public function setCreatedAt(DateTimeInterface $createdAt): self
+    public function setCreatedAt(DateTimeInterface $createdAt): void
     {
         $this->createdAt = $createdAt;
-        return $this;
     }
-    public function setUpdatedAt(DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(DateTimeInterface $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
-        return $this;
     }
 
     public function getCreatedAt(): DateTimeInterface

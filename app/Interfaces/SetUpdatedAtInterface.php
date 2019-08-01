@@ -6,5 +6,5 @@ use DateTimeInterface;
 
 interface SetUpdatedAtInterface
 {
-    public function setUpdatedAt(DateTimeInterface $dateTime): self;
+    public function setUpdatedAt(DateTimeInterface $dateTime): void;
 }

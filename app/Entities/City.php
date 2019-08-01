@@ -1,10 +1,10 @@
 <?php
-
+declare(strict_types=true);
 
 namespace App\Entities;
 
 
-class City
+class City extends Entity
 {
 
 }

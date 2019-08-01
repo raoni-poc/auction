@@ -1,17 +1,19 @@
 <?php
+declare(strict_types=true);
 
 namespace App\Entities;
 
+use App\Interfaces\AbbreviableInterface;
+use App\Interfaces\NameableInterface;
 use App\Interfaces\TimestampableInterface;
+use App\Traits\Abbreviable;
+use App\Traits\Nameable;
 use App\Traits\Timestampable;
 use DateTimeInterface;
 
-class State implements TimestampableInterface
+class State extends Entity implements NameableInterface, AbbreviableInterface
 {
-    use Timestampable;
-
-    private $name;
-    private $abbreviation;
+    use Nameable, Abbreviable;
 
     public function construct(
         string $name,
@@ -23,27 +25,5 @@ class State implements TimestampableInterface
         $this->setAbbreviation($abbreviation);
         $this->setCreatedAt($createdAt);
         $this->setUpdatedAt($updatedAt);
-    }
-
-    public function setAbbreviation($abbreviation): self
-    {
-        $this->abbreviation = $abbreviation;
-        return $this;
-    }
-
-    public function setName($name): self
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    public function getAbbreviation(): string
-    {
-        return $this->abbreviation;
     }
 }

@@ -6,10 +6,9 @@ trait Nameable
 {
     protected $name;
 
-    public function setName(string $name): self
+    public function setName(string $name): void
     {
         $this->name = $name;
-        return $this;
     }
 
     public function getName(): string

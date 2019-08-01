@@ -6,5 +6,5 @@ namespace App\Interfaces;
 
 interface SetNameInterface
 {
-    public function setName(string $name): self;
+    public function setName(string $name): void;
 }

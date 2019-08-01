@@ -4,5 +4,5 @@ namespace App\Interfaces;
 
 interface SetAbbreviationInterface
 {
-    public function setAbbreviation(string $abbreviation): self;
+    public function setAbbreviation(string $abbreviation): void;
 }

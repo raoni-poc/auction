@@ -1,31 +1,19 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateCustomerBaseSchema extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+    public function up():void
     {
-        Schema::create('customer_teste_schema', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
-        });
+        DB::statement('CREATE SCHEMA customer_base;');
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
+    public function down():void
     {
-        Schema::dropIfExists('customer_teste_schema');
+        DB::statement('DROP SCHEMA customer_base;');
     }
 }

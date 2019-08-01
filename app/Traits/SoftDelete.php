@@ -14,9 +14,8 @@ trait SoftDelete
         return $this->deteletedAt;
     }
 
-    public function setDeletedAt(DateTimeInterface $dateTime): self
+    public function setDeletedAt(DateTimeInterface $dateTime): void
     {
         $this->deteletedAt = $dateTime;
-        return $this;
     }
 }

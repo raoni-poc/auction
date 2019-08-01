@@ -13,8 +13,8 @@ class CreateTypesOfDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('types_of_documents', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('commons.types_of_documents', function (Blueprint $table) {
+            $table->bigIncrements('id')->unsigned();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ class CreateTypesOfDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('types_of_documents');
+        Schema::dropIfExists('commons.types_of_documents');
     }
 }

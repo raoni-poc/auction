@@ -1,16 +1,13 @@
 <?php
-
+declare(strict_types=true);
 
 namespace App\Entities;
-
 
 use App\Traits\Timestampable;
 use DateTimeInterface;
 
-class Route
+class Route extends Entity
 {
-    use Timestampable;
-
     private $origin;
     private $destination;
 
