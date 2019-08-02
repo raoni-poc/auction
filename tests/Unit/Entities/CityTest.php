@@ -30,8 +30,5 @@ class CityTest extends TestCase
         $this->assertSame($updatedAt, $city->getUpdatedAt());
         $this->assertSame($state, $city->getState());
         $this->assertSame($name, $city->getName());
-
-
-
     }
 }

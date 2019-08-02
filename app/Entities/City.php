@@ -5,10 +5,11 @@ namespace App\Entities;
 
 
 use App\Interfaces\CityInterface;
+use App\Interfaces\NameableInterface;
 use App\Interfaces\StateInterface;
 use App\Traits\Nameable;
 
-class City extends Entity implements CityInterface
+class City extends Entity implements CityInterface, NameableInterface
 {
     use Nameable;
 
