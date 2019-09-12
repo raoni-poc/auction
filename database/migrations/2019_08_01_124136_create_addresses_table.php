@@ -9,12 +9,20 @@ class CreateAddressesTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return void
+     * @return voidlogradouro
      */
     public function up()
     {
-        Schema::create('customer_base.addresses', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
+            $table->integer('city_id')->unsigned();
+            $table->foreign('city_id')->references('id')->on('cities');
+            $table->string('number');
+            $table->string('zip_code');
+            $table->string('neighborhood');
+            $table->string('complement');
+            $table->string('note');
+            $table->string('address');
             $table->timestamps();
         });
     }
@@ -26,6 +34,8 @@ class CreateAddressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customer_base.addresses');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('addresses');
+        Schema::enableForeignKeyConstraints();
     }
 }

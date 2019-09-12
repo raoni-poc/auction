@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCustomersTable extends Migration
+class CreateAccountStatusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons.customers', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned();
+        Schema::create('account_status', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->string('status_name');
             $table->timestamps();
         });
     }
@@ -26,6 +27,8 @@ class CreateCustomersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commons.customers');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('account_status');
+        Schema::enableForeignKeyConstraints();
     }
 }

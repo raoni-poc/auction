@@ -1,4 +1,4 @@
-<?php
+*<?php
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,8 +13,10 @@ class CreateDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons.documents', function (Blueprint $table) {
+        Schema::create('documents', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
+            $table->integer('type_of_document_id')->unsigned();
+            $table->foreign('type_of_document_id')->references('id')->on('types_of_documents');
             $table->timestamps();
         });
     }
@@ -26,6 +28,8 @@ class CreateDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commons.documents');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('documents');
+        Schema::enableForeignKeyConstraints();
     }
 }

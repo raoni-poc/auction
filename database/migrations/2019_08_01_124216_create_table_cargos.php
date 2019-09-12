@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRegionsTable extends Migration
+class CreateTableCargos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateRegionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons.regions', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned();
+        Schema::create('cargos', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('cargo');
+            $table->string('packing');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -26,6 +29,8 @@ class CreateRegionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commons.regions');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('cargos');
+        Schema::enableForeignKeyConstraints();
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAccountStatusTable extends Migration
+class CreateTableOffersTypes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class CreateAccountStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons.account_status', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned();
+        Schema::create('offers_types', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ class CreateAccountStatusTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commons.account_status');
+        Schema::dropIfExists('offers_types');
     }
 }

@@ -13,8 +13,12 @@ class CreateRoutesTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer_base.routes', function (Blueprint $table) {
+        Schema::create('routes', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
+            $table->bigInteger('address_origin_id')->unsigned();
+            $table->foreign('address_origin_id')->references('id')->on('addresses');
+            $table->bigInteger('address_destination_id')->unsigned();
+            $table->foreign('address_destination_id')->references('id')->on('addresses');
             $table->timestamps();
         });
     }
@@ -26,6 +30,8 @@ class CreateRoutesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customer_base.routes');
+        Schema::enableForeignKeyConstraints();
+        Schema::dropIfExists('routes');
+        Schema::disableForeignKeyConstraints();
     }
 }

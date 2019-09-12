@@ -13,8 +13,9 @@ class CreateTypesOfDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons.types_of_documents', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned();
+        Schema::create('types_of_documents', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->string('document');
             $table->timestamps();
         });
     }
@@ -26,6 +27,8 @@ class CreateTypesOfDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commons.types_of_documents');
+        Schema::enableForeignKeyConstraints();
+        Schema::dropIfExists('types_of_documents');
+        Schema::disableForeignKeyConstraints();
     }
 }

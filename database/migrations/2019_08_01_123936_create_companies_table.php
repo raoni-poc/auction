@@ -13,8 +13,12 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons.companies', function (Blueprint $table) {
+        Schema::create('companies', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
+            $table->string('name');
+            $table->string('trade_name');
+            $table->integer('account_status_id')->unsigned();
+            $table->foreign('account_status_id')->references('id')->on('account_status');
             $table->timestamps();
         });
     }
@@ -26,6 +30,8 @@ class CreateCompaniesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commons.companies');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('companies');
+        Schema::enableForeignKeyConstraints();
     }
 }

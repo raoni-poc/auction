@@ -13,8 +13,10 @@ class CreatePermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons.permissions', function (Blueprint $table) {
+        Schema::create('permissions', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
+            $table->string('name');
+            $table->string('guard_name');
             $table->timestamps();
         });
     }
@@ -26,6 +28,8 @@ class CreatePermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commons.permissions');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('permissions');
+        Schema::enableForeignKeyConstraints();
     }
 }

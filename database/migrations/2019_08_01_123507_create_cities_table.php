@@ -13,8 +13,12 @@ class CreateCitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons.cities', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned();
+        Schema::create('cities', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->string('name');
+            $table->string('abbreviation');
+            $table->integer('state_id')->unsigned();
+            $table->foreign('state_id')->references('id')->on('states');
             $table->timestamps();
         });
     }
@@ -26,6 +30,8 @@ class CreateCitiesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commons.cities');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('cities');
+        Schema::enableForeignKeyConstraints();
     }
 }

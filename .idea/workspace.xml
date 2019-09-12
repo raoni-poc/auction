@@ -8,9 +8,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d037ece4-bdc0-41e8-a188-b12cfe1240b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124219_create_offers_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123000_create_customer_base_schema.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123005_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123005_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123010_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123010_create_password_resets_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123404_create_countries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123404_create_countries_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123437_create_regions_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123455_create_states_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123455_create_states_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123507_create_cities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123507_create_cities_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123908_create_account_status_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123004_create_account_status_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123936_create_companies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123936_create_companies_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124001_create_customers_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124022_create_types_of_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124022_create_types_of_documents_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124100_create_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124100_create_documents_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124136_create_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124136_create_addresses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124150_create_routes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124150_create_routes_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124217_create_offers_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124241_create_bids_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124241_create_bids_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124314_create_permissions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124314_create_permissions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124335_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124335_create_roles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124354_create_products_table.php" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,25 +41,6 @@
     <execution>
       <executable />
     </execution>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>phpu</find>
-      <find>migrations</find>
-      <find>users</find>
-      <find>Self</find>
-      <find>strict_types=true</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>deleted_at  timestamp without time zone</replace>
-      <replace>strict_types=1</replace>
-    </replaceStrings>
-    <dirStrings>
-      <dir>C:\www\auction</dir>
-      <dir>C:\www\auction\app\Interfaces</dir>
-      <dir>C:\www\auction\app\Traits</dir>
-      <dir>C:\www\auction\app</dir>
-    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -138,10 +137,14 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="auto.test.manager.delay" value="1000" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\auction" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\www\auction\app\Identifiable" />
     </key>
@@ -168,8 +171,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.AddressTest.testBasic" />
       <item itemvalue="PHPUnit.Auction Unit Tests" />
+      <item itemvalue="PHPUnit.AddressTest.testBasic" />
     </list>
     <recent_temporary>
       <list>
@@ -190,38 +193,6 @@
       <workItem from="1564682474334" duration="14893000" />
     </task>
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="Auction_Unit_Tests - 2019.08.02 at 16h 23m 55s.xml">
-      <configuration name="Auction Unit Tests" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Auction_Unit_Tests - 2019.08.02 at 16h 24m 10s.xml">
-      <configuration name="Auction Unit Tests" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Auction_Unit_Tests - 2019.08.02 at 16h 24m 12s.xml">
-      <configuration name="Auction Unit Tests" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Auction_Unit_Tests - 2019.08.02 at 16h 26m 23s.xml">
-      <configuration name="Auction Unit Tests" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Auction_Unit_Tests - 2019.08.02 at 16h 26m 25s.xml">
-      <configuration name="Auction Unit Tests" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Auction_Unit_Tests - 2019.08.02 at 16h 27m 17s.xml">
-      <configuration name="Auction Unit Tests" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Auction_Unit_Tests - 2019.08.02 at 16h 27m 43s.xml">
-      <configuration name="Auction Unit Tests" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Auction_Unit_Tests - 2019.08.02 at 16h 27m 59s.xml">
-      <configuration name="Auction Unit Tests" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Auction_Unit_Tests - 2019.08.02 at 16h 28m 03s.xml">
-      <configuration name="Auction Unit Tests" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Auction_Unit_Tests - 2019.08.02 at 16h 28m 05s.xml">
-      <configuration name="Auction Unit Tests" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">

@@ -13,8 +13,10 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons.roles', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
+            $table->string('name');
+            $table->string('guard_name');
             $table->timestamps();
         });
     }
@@ -26,6 +28,8 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commons.roles');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('roles');
+        Schema::disableForeignKeyConstraints();
     }
 }

@@ -13,14 +13,14 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons.users', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned();
-//            $table->bigIncrements('company_id')->unsigned();
-//            $table->string('name');
-//            $table->string('email')->unique();
-//            $table->timestamp('email_verified_at')->nullable();
-//            $table->string('password');
-//            $table->rememberToken();
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->integer('account_status_id')->unsigned();
+            $table->foreign('account_status_id')->references('id')->on('account_status');
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -32,6 +32,8 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commons.users');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('users');
+        Schema::enableForeignKeyConstraints();
     }
 }

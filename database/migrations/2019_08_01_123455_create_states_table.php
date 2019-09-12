@@ -13,8 +13,12 @@ class CreateStatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons.states', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned();
+        Schema::create('states', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->string('name');
+            $table->string('abbreviation');
+            $table->integer('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('countries');
             $table->timestamps();
         });
     }
@@ -26,6 +30,8 @@ class CreateStatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commons.states');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('states');
+        Schema::enableForeignKeyConstraints();
     }
 }

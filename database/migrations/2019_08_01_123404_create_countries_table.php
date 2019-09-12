@@ -13,8 +13,10 @@ class CreateCountriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons.countries', function (Blueprint $table) {
-            $table->bigIncrements('id')->unsigned();
+        Schema::create('countries', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('abbreviation');
             $table->timestamps();
         });
     }
@@ -26,6 +28,8 @@ class CreateCountriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commons.countries');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('countries');
+        Schema::enableForeignKeyConstraints();
     }
 }

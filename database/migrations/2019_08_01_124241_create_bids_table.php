@@ -13,8 +13,11 @@ class CreateBidsTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer_base.bids', function (Blueprint $table) {
+        Schema::create('bids', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
+            $table->float('value');
+            $table->bigInteger('offer_id')->unsigned();
+            $table->foreign('offer_id')->references('id')->on('offers');
             $table->timestamps();
         });
     }
@@ -26,6 +29,8 @@ class CreateBidsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customer_base.bids');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('bids');
+        Schema::enableForeignKeyConstraints();
     }
 }
