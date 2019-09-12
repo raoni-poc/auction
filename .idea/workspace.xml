@@ -8,27 +8,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d037ece4-bdc0-41e8-a188-b12cfe1240b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124219_create_offers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/auction.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/auction.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123000_create_customer_base_schema.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123005_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123005_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123010_create_password_resets_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123010_create_password_resets_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123404_create_countries_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123404_create_countries_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123437_create_regions_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123455_create_states_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123455_create_states_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123507_create_cities_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123507_create_cities_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123908_create_account_status_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123004_create_account_status_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123936_create_companies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123936_create_companies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124001_create_customers_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124022_create_types_of_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124022_create_types_of_documents_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124022_create_types_of_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124022_create_document_types_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124100_create_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124100_create_documents_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124136_create_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124136_create_addresses_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124150_create_routes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124150_create_routes_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124217_create_offers_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124241_create_bids_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124241_create_bids_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124314_create_permissions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124314_create_permissions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124335_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124335_create_roles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124354_create_products_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124314_create_permissions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_01_124314_create_permissions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124335_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_01_124335_create_roles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_145120_create_table_pivot_permission_role.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_12_145120_create_table_pivot_permission_role.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -128,6 +121,15 @@
       <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
     </include_path>
   </component>
   <component name="ProjectLevelVcsManager">
@@ -142,11 +144,12 @@
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\auction\app\Models" />
+      <recent name="C:\www\auction\app\Identifiable" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\auction" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\www\auction\app\Identifiable" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -205,5 +208,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/database/factories/RoleFactory.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

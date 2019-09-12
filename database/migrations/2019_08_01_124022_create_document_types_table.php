@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTypesOfDocumentsTable extends Migration
+class CreateDocumentTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateTypesOfDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('types_of_documents', function (Blueprint $table) {
+        Schema::create('document_types', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('document');
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -28,7 +28,7 @@ class CreateTypesOfDocumentsTable extends Migration
     public function down()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::dropIfExists('types_of_documents');
+        Schema::dropIfExists('document_types');
         Schema::disableForeignKeyConstraints();
     }
 }

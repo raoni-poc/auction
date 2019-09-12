@@ -19,6 +19,8 @@ class CreateRoutesTable extends Migration
             $table->foreign('address_origin_id')->references('id')->on('addresses');
             $table->bigInteger('address_destination_id')->unsigned();
             $table->foreign('address_destination_id')->references('id')->on('addresses');
+            $table->bigInteger('next_route_id')->unsigned();
+            $table->foreign('next_route_id')->references('id')->on('routes');
             $table->timestamps();
         });
     }
