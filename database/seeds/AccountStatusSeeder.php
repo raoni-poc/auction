@@ -18,6 +18,7 @@ class AccountStatusSeeder extends Seeder
         DB::table($table)->insert([
             ['id' => 1, 'name' => 'Ativo'],
             ['id' => 2, 'name' => 'Inativo'],
+            ['id' => 3, 'name' => 'Nunca Ativado'],
         ]);
     }
 }

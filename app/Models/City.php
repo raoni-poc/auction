@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property int $id
  * @property string $name
- * @property string $abbreviation
  * @property int $state_id
+ * @property int $ibge_code
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Address[] $address
@@ -26,7 +26,6 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\City whereStateId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\City whereUpdatedAt($value)
  * @mixin \Eloquent
- * @property int $ibge_code
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\City whereIbgeCode($value)
  */
 class City extends Model

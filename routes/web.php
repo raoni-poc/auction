@@ -18,5 +18,3 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/city/list', 'CityController@list')->name('city.list');
-//Route::get('/marketplace', 'MarketPlaceController@index')->name('marketplace.index');
