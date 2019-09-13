@@ -20,8 +20,8 @@ class UserController extends Controller
         $user = User::create($data);
         $user->refresh();
         \Log::debug(__METHOD__.' Usuário id:'.$user->id);
-//        event(new Registered($user));
-        event(new UserWasCreatedEvent($user));
+        event(new Registered($user));
+//        event(new UserWasCreatedEvent($user));
         return new UserResource($user);
     }
 
