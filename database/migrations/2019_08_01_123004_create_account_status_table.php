@@ -15,7 +15,7 @@ class CreateAccountStatusTable extends Migration
     {
         Schema::create('account_status', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('status_name');
+            $table->string('name');
             $table->timestamps();
         });
     }

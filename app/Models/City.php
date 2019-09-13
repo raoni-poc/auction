@@ -26,6 +26,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\City whereStateId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\City whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $ibge_code
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\City whereIbgeCode($value)
  */
 class City extends Model
 {
