@@ -4,6 +4,7 @@ namespace App\Listeners;
 
 use App\Events\UserWasCreatedEvent;
 use App\Models\User;
+use Illuminate\Auth\MustVerifyEmail;
 use Log;
 
 class SendWelcomeMailListener
@@ -17,8 +18,10 @@ class SendWelcomeMailListener
         /** @var User $user */
         $user = $event->getUser();
         $token = \Password::broker()->createToken($user);
-        //$user->sendPasswordResetNotification($token);
-        $this->notify(new ResetPasswordNotification($token));
+        $user->sendPasswordResetNotification($token);
+//        if ($user instanceof MustVerifyEmail && ! $user->hasVerifiedEmail()) {
+//            $user->sendEmailVerificationNotification();
+//        }
 
     }
 }
