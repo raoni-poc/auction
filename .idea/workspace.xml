@@ -167,8 +167,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.Auction Unit Tests" />
       <item itemvalue="PHPUnit.AddressTest.testBasic" />
+      <item itemvalue="PHPUnit.Auction Unit Tests" />
     </list>
     <recent_temporary>
       <list>
