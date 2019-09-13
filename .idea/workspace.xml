@@ -8,20 +8,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d037ece4-bdc0-41e8-a188-b12cfe1240b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/auction.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/auction.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/City.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_123005_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_123005_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124022_create_types_of_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124022_create_document_types_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124100_create_documents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124100_create_documents_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124150_create_routes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_08_01_124150_create_routes_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124314_create_permissions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_01_124314_create_permissions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_08_01_124335_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_01_124335_create_roles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_09_12_145120_create_table_pivot_permission_role.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_12_145120_create_table_pivot_permission_role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/AccountStatus.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AccountStatus.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Bid.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Bid.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cargo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Cargo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Cities.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Country.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Country.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Document.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Document.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/DocumentType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/DocumentType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Offer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Offer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/OfferType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OfferType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Permission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Requirement.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Requirement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/RequirementType.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/RequirementType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Role.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Role.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Route.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Route.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/State.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/State.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/CityFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CityFactory.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,7 +36,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -132,6 +139,7 @@
       <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
     </include_path>
   </component>
+  <component name="ProjectId" id="1QmYBwuvoaZQzdMi9MZnxvqUSRZ" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -139,7 +147,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="auto.test.manager.delay" value="1000" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
@@ -149,6 +157,7 @@
       <recent name="C:\www\auction\app\Identifiable" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\auction\app" />
       <recent name="F:\auction" />
     </key>
   </component>
@@ -174,8 +183,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.AddressTest.testBasic" />
       <item itemvalue="PHPUnit.Auction Unit Tests" />
+      <item itemvalue="PHPUnit.AddressTest.testBasic" />
     </list>
     <recent_temporary>
       <list>
@@ -194,6 +203,7 @@
       <option name="presentableId" value="Default" />
       <updated>1564682469271</updated>
       <workItem from="1564682474334" duration="14893000" />
+      <workItem from="1568377107887" duration="248000" />
     </task>
     <servers />
   </component>
@@ -208,6 +218,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
