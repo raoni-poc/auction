@@ -24,7 +24,8 @@ class RequirementRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:1|max:255',
+            'requirement_type_id' => 'required|min:1|numeric',
         ];
     }
 }

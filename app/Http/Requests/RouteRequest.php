@@ -24,7 +24,9 @@ class RouteRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'address_origin_id' => 'required|numeric|min:1',
+            'address_destination_id' => 'required|numeric|min:1',
+            'next_route_id' => 'numeric|min:1',
         ];
     }
 }

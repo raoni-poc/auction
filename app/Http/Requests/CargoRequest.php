@@ -24,7 +24,9 @@ class CargoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'cargo' => 'required|min:3|max:255',
+            'packing' => 'required|min:3|max:255',
+            'description' => 'required|min:5|max:10000'
         ];
     }
 }

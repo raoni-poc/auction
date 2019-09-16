@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\DocumentType;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DocumentTypeRequest extends FormRequest
@@ -24,7 +25,7 @@ class DocumentTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:1|max:255|unique:'.(new DocumentType())->getTable().',name',
         ];
     }
 }

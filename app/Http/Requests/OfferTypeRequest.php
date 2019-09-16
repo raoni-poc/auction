@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\OfferType;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OfferTypeRequest extends FormRequest
@@ -24,7 +25,7 @@ class OfferTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:1|max:255|unique:'.(new OfferType())->getTable().',name',
         ];
     }
 }

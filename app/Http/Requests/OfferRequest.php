@@ -24,7 +24,10 @@ class OfferRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'route_id' => 'required|min:1|numeric',
+            'cargo_id' => 'required|min:1|numeric',
+            'offer_type_id' => 'required|min:1|numeric',
+            'start_price' => 'required|numeric',
         ];
     }
 }

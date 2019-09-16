@@ -24,7 +24,8 @@ class DocumentRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'content' => 'required|min:1|max:255',
+            'document_type_id' => 'required|min:1|numeric'
         ];
     }
 }

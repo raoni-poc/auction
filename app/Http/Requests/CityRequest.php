@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\City;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CityRequest extends FormRequest
@@ -24,7 +25,9 @@ class CityRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'ibge_code' => 'required|numeric|min:1||unique:'.(new City())->getTable().',ibge_code',
+            'name' => 'required|min:3|max:255',
+            'state_id' => 'required|numeric|min:1'
         ];
     }
 }

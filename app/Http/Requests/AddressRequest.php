@@ -24,7 +24,7 @@ class AddressRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'address' => 'required|min:3'
         ];
     }
 }

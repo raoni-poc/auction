@@ -24,7 +24,9 @@ class StateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|min:1|max:255',
+            'abbreviation' => 'required|min:1|max:50',
+            'country_id' => 'required|min:1|numeric',
         ];
     }
 }

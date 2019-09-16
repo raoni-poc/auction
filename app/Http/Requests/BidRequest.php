@@ -24,7 +24,8 @@ class BidRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'value' => 'required|min:1',
+            'offer_id' => 'required'
         ];
     }
 }
