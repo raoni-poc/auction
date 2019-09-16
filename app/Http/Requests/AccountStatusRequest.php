@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\AccountStatus;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AccountStatusRequest extends FormRequest
@@ -13,7 +14,7 @@ class AccountStatusRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,7 @@ class AccountStatusRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+           'name' => 'required|min:3|max:50|unique:'.(new AccountStatus())->getTable().',name',
         ];
     }
 }

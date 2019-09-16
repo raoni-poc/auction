@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Common\OnlyTrashed;
 use App\Http\Controllers\Controller;
-use App\Http\Filters\CategoryFilter;
-use App\Http\Requests\CategoryRequest;
-use App\Http\Resources\CategoryResource;
-use App\Models\Category;
-use Illuminate\Database\Eloquent\Builder;
+use App\Http\Requests\AccountStatusRequest;
+use App\Http\Resources\AccountStatusResource;
+use App\Models\AccountStatus;
 use Illuminate\Http\Request;
 
 class AccountStatusController extends Controller
@@ -16,43 +15,33 @@ class AccountStatusController extends Controller
 
     public function index(Request $request)
     {
-        $filter = app(ProductFilter::class);
-        $query = Product::query();
-        $query = $this->onlyTrashedIfRequested($request, $query);
-        $filterQuery = $query->filtered($filter);
-        $products = $filter->hasFilterParameter() ? $filterQuery->get(): $filterQuery->paginate();
-        return ProductResource::collection($products);
+        $accountStatus = AccountStatus::paginate();
+        return AccountStatusResource::collection($accountStatus);
     }
 
-    public function store(ProductRequest $request)
+    public function store(AccountStatusRequest $request)
     {
-        $product = Product::create($request->all());
-        $product->refresh();
-        return new ProductResource($product);
+        $accountStatus = AccountStatus::create($request->all());
+        $accountStatus->refresh();
+        return new AccountStatusResource($accountStatus);
     }
 
-    public function show(Product $product)
+    public function show(AccountStatus $accountStatus)
     {
-        return new ProductResource($product);
+        return new AccountStatusResource($accountStatus);
     }
 
-    public function update(ProductRequest $request, Product $product)
+    public function update(AccountStatusRequest $request, AccountStatus $accountStatus)
     {
-        $product->fill($request->all());
-        $product->save();
-        $product->refresh();
-        return new ProductResource($product);
+        $accountStatus->fill($request->all());
+        $accountStatus->save();
+        $accountStatus->refresh();
+        return new AccountStatusResource($accountStatus);
     }
 
-    public function destroy(Product $product)
+    public function destroy(AccountStatus $accountStatus)
     {
-        $product->delete();
-        return response()->json([], 204);
-    }
-
-    public function restore(Product $product)
-    {
-        $product->restore();
+        $accountStatus->delete();
         return response()->json([], 204);
     }
 }
