@@ -1,12 +1,12 @@
 <?php
 
-namespace CodeShopping\Http\Controllers\Api;
+namespace App\Http\Controllers\Api;
 
-use CodeShopping\Http\Controllers\Controller;
-use CodeShopping\Http\Filters\CategoryFilter;
-use CodeShopping\Http\Requests\CategoryRequest;
-use CodeShopping\Http\Resources\CategoryResource;
-use CodeShopping\Models\Category;
+use App\Http\Controllers\Controller;
+use App\Http\Filters\CategoryFilter;
+use App\Http\Requests\CategoryRequest;
+use App\Http\Resources\CategoryResource;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
