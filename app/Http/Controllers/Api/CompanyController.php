@@ -3,56 +3,42 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Filters\CategoryFilter;
-use App\Http\Requests\CategoryRequest;
-use App\Http\Resources\CategoryResource;
-use App\Models\Category;
-use Illuminate\Database\Eloquent\Builder;
+use App\Http\Requests\CompanyRequest;
+use App\Http\Resources\CompanyResource;
+use App\Models\Company;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
-    use OnlyTrashed;
-
     public function index(Request $request)
     {
-        $filter = app(ProductFilter::class);
-        $query = Product::query();
-        $query = $this->onlyTrashedIfRequested($request, $query);
-        $filterQuery = $query->filtered($filter);
-        $products = $filter->hasFilterParameter() ? $filterQuery->get(): $filterQuery->paginate();
-        return ProductResource::collection($products);
+        $address = Company::paginate();
+        return CompanyResource::collection($address);
     }
 
-    public function store(ProductRequest $request)
+    public function store(CompanyRequest $request)
     {
-        $product = Product::create($request->all());
-        $product->refresh();
-        return new ProductResource($product);
+        $address = Company::create($request->all());
+        $address->refresh();
+        return new CompanyResource($address);
     }
 
-    public function show(Product $product)
+    public function show(Company $address)
     {
-        return new ProductResource($product);
+        return new CompanyResource($address);
     }
 
-    public function update(ProductRequest $request, Product $product)
+    public function update(CompanyRequest $request, Company $address)
     {
-        $product->fill($request->all());
-        $product->save();
-        $product->refresh();
-        return new ProductResource($product);
+        $address->fill($request->all());
+        $address->save();
+        $address->refresh();
+        return new CompanyResource($address);
     }
 
-    public function destroy(Product $product)
+    public function destroy(Company $address)
     {
-        $product->delete();
-        return response()->json([], 204);
-    }
-
-    public function restore(Product $product)
-    {
-        $product->restore();
+        $address->delete();
         return response()->json([], 204);
     }
 }

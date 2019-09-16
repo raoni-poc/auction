@@ -3,56 +3,42 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Filters\CategoryFilter;
-use App\Http\Requests\CategoryRequest;
-use App\Http\Resources\CategoryResource;
-use App\Models\Category;
-use Illuminate\Database\Eloquent\Builder;
+use App\Http\Requests\BidRequest;
+use App\Http\Resources\BidResource;
+use App\Models\Bid;
 use Illuminate\Http\Request;
 
 class BidController extends Controller
 {
-    use OnlyTrashed;
-
     public function index(Request $request)
     {
-        $filter = app(ProductFilter::class);
-        $query = Product::query();
-        $query = $this->onlyTrashedIfRequested($request, $query);
-        $filterQuery = $query->filtered($filter);
-        $products = $filter->hasFilterParameter() ? $filterQuery->get(): $filterQuery->paginate();
-        return ProductResource::collection($products);
+        $address = Bid::paginate();
+        return BidResource::collection($address);
     }
 
-    public function store(ProductRequest $request)
+    public function store(BidRequest $request)
     {
-        $product = Product::create($request->all());
-        $product->refresh();
-        return new ProductResource($product);
+        $address = Bid::create($request->all());
+        $address->refresh();
+        return new BidResource($address);
     }
 
-    public function show(Product $product)
+    public function show(Bid $address)
     {
-        return new ProductResource($product);
+        return new BidResource($address);
     }
 
-    public function update(ProductRequest $request, Product $product)
+    public function update(BidRequest $request, Bid $address)
     {
-        $product->fill($request->all());
-        $product->save();
-        $product->refresh();
-        return new ProductResource($product);
+        $address->fill($request->all());
+        $address->save();
+        $address->refresh();
+        return new BidResource($address);
     }
 
-    public function destroy(Product $product)
+    public function destroy(Bid $address)
     {
-        $product->delete();
-        return response()->json([], 204);
-    }
-
-    public function restore(Product $product)
-    {
-        $product->restore();
+        $address->delete();
         return response()->json([], 204);
     }
 }

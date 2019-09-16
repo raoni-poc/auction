@@ -2,84 +2,43 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\OfferRequest;
+use App\Http\Resources\OfferResource;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class OfferTypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $address = Offer::paginate();
+        return OfferResource::collection($address);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(OfferRequest $request)
     {
-        //
+        $address = Offer::create($request->all());
+        $address->refresh();
+        return new OfferResource($address);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function show(Offer $address)
     {
-        //
+        return new OfferResource($address);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function update(OfferRequest $request, Offer $address)
     {
-        //
+        $address->fill($request->all());
+        $address->save();
+        $address->refresh();
+        return new OfferResource($address);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function destroy(Offer $address)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $address->delete();
+        return response()->json([], 204);
     }
 }

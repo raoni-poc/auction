@@ -3,56 +3,43 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Filters\CategoryFilter;
-use App\Http\Requests\CategoryRequest;
-use App\Http\Resources\CategoryResource;
-use App\Models\Category;
+use App\Http\Requests\CargoRequest;
+use App\Http\Resources\CargoResource;
+use App\Models\Cargo;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class CargoController extends Controller
 {
-    use OnlyTrashed;
-
     public function index(Request $request)
     {
-        $filter = app(ProductFilter::class);
-        $query = Product::query();
-        $query = $this->onlyTrashedIfRequested($request, $query);
-        $filterQuery = $query->filtered($filter);
-        $products = $filter->hasFilterParameter() ? $filterQuery->get(): $filterQuery->paginate();
-        return ProductResource::collection($products);
+        $address = Cargo::paginate();
+        return CargoResource::collection($address);
     }
 
-    public function store(ProductRequest $request)
+    public function store(CargoRequest $request)
     {
-        $product = Product::create($request->all());
-        $product->refresh();
-        return new ProductResource($product);
+        $address = Cargo::create($request->all());
+        $address->refresh();
+        return new CargoResource($address);
     }
 
-    public function show(Product $product)
+    public function show(Cargo $address)
     {
-        return new ProductResource($product);
+        return new CargoResource($address);
     }
 
-    public function update(ProductRequest $request, Product $product)
+    public function update(CargoRequest $request, Cargo $address)
     {
-        $product->fill($request->all());
-        $product->save();
-        $product->refresh();
-        return new ProductResource($product);
+        $address->fill($request->all());
+        $address->save();
+        $address->refresh();
+        return new CargoResource($address);
     }
 
-    public function destroy(Product $product)
+    public function destroy(Cargo $address)
     {
-        $product->delete();
-        return response()->json([], 204);
-    }
-
-    public function restore(Product $product)
-    {
-        $product->restore();
+        $address->delete();
         return response()->json([], 204);
     }
 }

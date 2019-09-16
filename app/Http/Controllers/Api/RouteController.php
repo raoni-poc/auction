@@ -2,84 +2,43 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\RouteRequest;
+use App\Http\Resources\RouteResource;
+use App\Models\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class RouteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $address = Route::paginate();
+        return RouteResource::collection($address);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(RouteRequest $request)
     {
-        //
+        $address = Route::create($request->all());
+        $address->refresh();
+        return new RouteResource($address);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function show(Route $address)
     {
-        //
+        return new RouteResource($address);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function update(RouteRequest $request, Route $address)
     {
-        //
+        $address->fill($request->all());
+        $address->save();
+        $address->refresh();
+        return new RouteResource($address);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function destroy(Route $address)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $address->delete();
+        return response()->json([], 204);
     }
 }
