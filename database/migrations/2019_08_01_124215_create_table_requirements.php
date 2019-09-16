@@ -15,7 +15,7 @@ class CreateTableRequirements extends Migration
     {
         Schema::create('requirements', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('requirement');
+            $table->string('name');
             $table->bigInteger('requirement_type_id')->unsigned();
             $table->foreign('requirement_type_id')->references('id')->on('requirements_types');
             $table->timestamps();

@@ -4,15 +4,16 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\RequirementTypeRequest;
 use App\Http\Resources\RequirementTypeResource;
+use App\Models\RequirementType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class RequirementType extends Controller
+class RequirementTypeController extends Controller
 {
     public function index(Request $request)
     {
-        $address = RequirementType::paginate();
-        return RequirementTypeResource::collection($address);
+        $requirement = RequirementType::paginate();
+        return RequirementTypeResource::collection($requirement);
     }
 
     public function store(RequirementTypeRequest $request)

@@ -15,7 +15,7 @@ class CreateTableRequirementsTypes extends Migration
     {
         Schema::create('requirements_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type');
+            $table->string('name');
             $table->timestamps();
         });
     }
