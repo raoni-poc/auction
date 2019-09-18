@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Events\Registered;
 use App\Events\UserWasCreatedEvent;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
-use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
