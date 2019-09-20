@@ -37,4 +37,8 @@ Route::group(['namespace' => 'Api', 'as' => 'api.'], function () {
     Route::resource('route', 'RouteController', );
     Route::resource('state', 'StateController', );
     Route::resource('users', 'UserController', ['except' => ['create', 'edit']]);
+
+    Route::get('/email/resend', 'VerificationController@resend')->name('verification.resend')->middleware(['web', 'auth', 'throttle:6,1']);
+    Route::get('/email/verify  ', 'VerificationController@show')->name('verification.notice')->middleware(['web', 'auth']);
+    Route::get('/email/verify/{id}', 'VerificationController@verify')->name('verification.verify')->middleware(['web', 'auth', 'signed', 'throttle:6,1']);
 });

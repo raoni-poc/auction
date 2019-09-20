@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        echo 'Email Verficado! Faça o Login Novamente';
+        sleep('5');
+        return redirect(config('app.url'));
         return view('home');
     }
 }

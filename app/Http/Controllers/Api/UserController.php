@@ -15,7 +15,8 @@ class UserController extends Controller
     public function store(UserRequest $request)
     {
         $data = $request->all();
-        $data['password'] = bcrypt('random-password-' . date('Y-m-y m:i:s') . '-' . \mt_rand(0, 999999999999));
+        //$data['password'] = bcrypt('random-password-' . date('Y-m-y m:i:s') . '-' . \mt_rand(0, 999999999999));
+        $data['password'] = bcrypt($data['password']);
         $data['account_status_id'] = 3;
         $user = User::create($data);
         $user->refresh();

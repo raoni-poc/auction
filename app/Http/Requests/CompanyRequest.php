@@ -25,8 +25,7 @@ class CompanyRequest extends FormRequest
     {
         return [
             'name' => 'required|min:1|max:255',
-            'trade_name' => 'required|min:1|max:255',
-            'account_status_id' => 'required|min:1',
+            'trade_name' => 'required|min:1|max:255'
         ];
     }
 }
