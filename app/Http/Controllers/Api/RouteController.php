@@ -12,33 +12,33 @@ class RouteController extends Controller
 {
     public function index(Request $request)
     {
-        $address = Route::paginate();
-        return RouteResource::collection($address);
+        $route = Route::paginate();
+        return RouteResource::collection($route);
     }
 
     public function store(RouteRequest $request)
     {
-        $address = Route::create($request->all());
-        $address->refresh();
-        return new RouteResource($address);
+        $route = Route::create($request->all());
+        $route->refresh();
+        return new RouteResource($route);
     }
 
-    public function show(Route $address)
+    public function show(Route $route)
     {
-        return new RouteResource($address);
+        return new RouteResource($route);
     }
 
-    public function update(RouteRequest $request, Route $address)
+    public function update(RouteRequest $request, Route $route)
     {
-        $address->fill($request->all());
-        $address->save();
-        $address->refresh();
-        return new RouteResource($address);
+        $route->fill($request->all());
+        $route->save();
+        $route->refresh();
+        return new RouteResource($route);
     }
 
-    public function destroy(Route $address)
+    public function destroy(Route $route)
     {
-        $address->delete();
+        $route->delete();
         return response()->json([], 204);
     }
 }

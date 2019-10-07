@@ -41,7 +41,7 @@ class UserController extends Controller
 
     public function update(UserRequest $request, User $user)
     {
-        $user->fill($request->all());
+        $user->fill($request->all()); /*TODO, Erro ao editar campo email já esta em uso*/
         $user->save();
         return new UserResource($user);
     }

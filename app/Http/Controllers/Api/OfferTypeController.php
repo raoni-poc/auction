@@ -2,43 +2,43 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Requests\OfferRequest;
-use App\Http\Resources\OfferResource;
-use App\Models\Offer;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OfferTypeRequest;
+use App\Http\Resources\OfferTypeResource;
+use App\Models\OfferType;
+use Illuminate\Http\Request;
 
 class OfferTypeController extends Controller
 {
     public function index(Request $request)
     {
-        $address = Offer::paginate();
-        return OfferResource::collection($address);
+        $offerType = OfferType::paginate();
+        return OfferTypeResource::collection($offerType);
     }
 
-    public function store(OfferRequest $request)
+    public function store(OfferTypeRequest $request)
     {
-        $address = Offer::create($request->all());
-        $address->refresh();
-        return new OfferResource($address);
+        $offerType = OfferType::create($request->all());
+        $offerType->refresh();
+        return new OfferTypeResource($offerType);
     }
 
-    public function show(Offer $address)
+    public function show(OfferType $offerType)
     {
-        return new OfferResource($address);
+        return new OfferTypeResource($offerType);
     }
 
-    public function update(OfferRequest $request, Offer $address)
+    public function update(OfferTypeRequest $request, OfferType $offerType)
     {
-        $address->fill($request->all());
-        $address->save();
-        $address->refresh();
-        return new OfferResource($address);
+        $offerType->fill($request->all()); /*TODO o Nome já esta sendo utilizado ao editar*/
+        $offerType->save();
+        $offerType->refresh();
+        return new OfferTypeResource($offerType);
     }
 
-    public function destroy(Offer $address)
+    public function destroy(OfferType $offerType)
     {
-        $address->delete();
+        $offerType->delete();
         return response()->json([], 204);
     }
 }

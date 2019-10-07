@@ -12,33 +12,33 @@ class RoleController extends Controller
 {
     public function index(Request $request)
     {
-        $address = Role::paginate();
-        return RoleResource::collection($address);
+        $role = Role::paginate();
+        return RoleResource::collection($role);
     }
 
     public function store(RoleRequest $request)
     {
-        $address = Role::create($request->all());
-        $address->refresh();
-        return new RoleResource($address);
+        $role = Role::create($request->all());
+        $role->refresh();
+        return new RoleResource($role);
     }
 
-    public function show(Role $address)
+    public function show(Role $role)
     {
-        return new RoleResource($address);
+        return new RoleResource($role);
     }
 
-    public function update(RoleRequest $request, Role $address)
+    public function update(RoleRequest $request, Role $role)
     {
-        $address->fill($request->all());
-        $address->save();
-        $address->refresh();
-        return new RoleResource($address);
+        $role->fill($request->all());
+        $role->save();
+        $role->refresh();
+        return new RoleResource($role);
     }
 
-    public function destroy(Role $address)
+    public function destroy(Role $role)
     {
-        $address->delete();
+        $role->delete();
         return response()->json([], 204);
     }
 }

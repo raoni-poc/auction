@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\OfferType;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -13,7 +14,7 @@ class CreateTableOffersTypes extends Migration
      */
     public function up()
     {
-        Schema::create('offers_types', function (Blueprint $table) {
+        Schema::create((new OfferType())->getTable(), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();

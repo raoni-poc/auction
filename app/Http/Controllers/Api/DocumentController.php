@@ -12,33 +12,33 @@ class DocumentController extends Controller
 {
     public function index(Request $request)
     {
-        $address = Document::paginate();
-        return DocumentResource::collection($address);
+        $document = Document::paginate();
+        return DocumentResource::collection($document);
     }
 
     public function store(DocumentRequest $request)
     {
-        $address = Document::create($request->all());
-        $address->refresh();
-        return new DocumentResource($address);
+        $document = Document::create($request->all());
+        $document->refresh();
+        return new DocumentResource($document);
     }
 
-    public function show(Document $address)
+    public function show(Document $document)
     {
-        return new DocumentResource($address);
+        return new DocumentResource($document);
     }
 
-    public function update(DocumentRequest $request, Document $address)
+    public function update(DocumentRequest $request, Document $document)
     {
-        $address->fill($request->all());
-        $address->save();
-        $address->refresh();
-        return new DocumentResource($address);
+        $document->fill($request->all());
+        $document->save();
+        $document->refresh();
+        return new DocumentResource($document);
     }
 
-    public function destroy(Document $address)
+    public function destroy(Document $document)
     {
-        $address->delete();
+        $document->delete();
         return response()->json([], 204);
     }
 }

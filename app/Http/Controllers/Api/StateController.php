@@ -12,33 +12,33 @@ class StateController extends Controller
 {
     public function index(Request $request)
     {
-        $address = State::paginate();
-        return StateResource::collection($address);
+        $state = State::paginate();
+        return StateResource::collection($state);
     }
 
     public function store(StateRequest $request)
     {
-        $address = State::create($request->all());
-        $address->refresh();
-        return new StateResource($address);
+        $state = State::create($request->all());
+        $state->refresh();
+        return new StateResource($state);
     }
 
-    public function show(State $address)
+    public function show(State $state)
     {
-        return new StateResource($address);
+        return new StateResource($state);
     }
 
-    public function update(StateRequest $request, State $address)
+    public function update(StateRequest $request, State $state)
     {
-        $address->fill($request->all());
-        $address->save();
-        $address->refresh();
-        return new StateResource($address);
+        $state->fill($request->all());
+        $state->save();
+        $state->refresh();
+        return new StateResource($state);
     }
 
-    public function destroy(State $address)
+    public function destroy(State $state)
     {
-        $address->delete();
+        $state->delete();
         return response()->json([], 204);
     }
 }

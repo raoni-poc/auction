@@ -11,33 +11,33 @@ class CityController extends Controller
 {
     public function index(Request $request)
     {
-        $address = City::paginate();
-        return CityResource::collection($address);
+        $city = City::paginate();
+        return CityResource::collection($city);
     }
 
     public function store(CityRequest $request)
     {
-        $address = City::create($request->all());
-        $address->refresh();
-        return new CityResource($address);
+        $city = City::create($request->all());
+        $city->refresh();
+        return new CityResource($city);
     }
 
-    public function show(City $address)
+    public function show(City $city)
     {
-        return new CityResource($address);
+        return new CityResource($city);
     }
 
-    public function update(CityRequest $request, City $address)
+    public function update(CityRequest $request, City $city)
     {
-        $address->fill($request->all());
-        $address->save();
-        $address->refresh();
-        return new CityResource($address);
+        $city->fill($request->all()); /* TODO erro O campo ibge code já está sendo utilizado. na edição */
+        $city->save();
+        $city->refresh();
+        return new CityResource($city);
     }
 
-    public function destroy(City $address)
+    public function destroy(City $city)
     {
-        $address->delete();
+        $city->delete();
         return response()->json([], 204);
     }
 }

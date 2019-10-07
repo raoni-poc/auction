@@ -6,40 +6,39 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CargoRequest;
 use App\Http\Resources\CargoResource;
 use App\Models\Cargo;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class CargoController extends Controller
 {
     public function index(Request $request)
     {
-        $address = Cargo::paginate();
-        return CargoResource::collection($address);
+        $cargo = Cargo::paginate();
+        return CargoResource::collection($cargo);
     }
 
     public function store(CargoRequest $request)
     {
-        $address = Cargo::create($request->all());
-        $address->refresh();
-        return new CargoResource($address);
+        $cargo = Cargo::create($request->all());
+        $cargo->refresh();
+        return new CargoResource($cargo);
     }
 
-    public function show(Cargo $address)
+    public function show(Cargo $cargo)
     {
-        return new CargoResource($address);
+        return new CargoResource($cargo);
     }
 
-    public function update(CargoRequest $request, Cargo $address)
+    public function update(CargoRequest $request, Cargo $cargo)
     {
-        $address->fill($request->all());
-        $address->save();
-        $address->refresh();
-        return new CargoResource($address);
+        $cargo->fill($request->all());
+        $cargo->save();
+        $cargo->refresh();
+        return new CargoResource($cargo);
     }
 
-    public function destroy(Cargo $address)
+    public function destroy(Cargo $cargo)
     {
-        $address->delete();
+        $cargo->delete();
         return response()->json([], 204);
     }
 }

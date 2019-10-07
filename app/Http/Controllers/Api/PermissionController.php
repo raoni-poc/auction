@@ -12,33 +12,33 @@ class PermissionController extends Controller
 {
     public function index(Request $request)
     {
-        $address = Permission::paginate();
-        return PermissionResource::collection($address);
+        $permission = Permission::paginate();
+        return PermissionResource::collection($permission);
     }
 
     public function store(PermissionRequest $request)
     {
-        $address = Permission::create($request->all());
-        $address->refresh();
-        return new PermissionResource($address);
+        $permission = Permission::create($request->all());
+        $permission->refresh();
+        return new PermissionResource($permission);
     }
 
-    public function show(Permission $address)
+    public function show(Permission $permission)
     {
-        return new PermissionResource($address);
+        return new PermissionResource($permission);
     }
 
-    public function update(PermissionRequest $request, Permission $address)
+    public function update(PermissionRequest $request, Permission $permission)
     {
-        $address->fill($request->all());
-        $address->save();
-        $address->refresh();
-        return new PermissionResource($address);
+        $permission->fill($request->all());
+        $permission->save();
+        $permission->refresh();
+        return new PermissionResource($permission);
     }
 
-    public function destroy(Permission $address)
+    public function destroy(Permission $permission)
     {
-        $address->delete();
+        $permission->delete();
         return response()->json([], 204);
     }
 }

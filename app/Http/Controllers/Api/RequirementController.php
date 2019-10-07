@@ -12,33 +12,33 @@ class RequirementController extends Controller
 {
     public function index(Request $request)
     {
-        $address = Requirement::paginate();
-        return RequirementResource::collection($address);
+        $requirement = Requirement::paginate();
+        return RequirementResource::collection($requirement);
     }
 
     public function store(RequirementRequest $request)
     {
-        $address = Requirement::create($request->all());
-        $address->refresh();
-        return new RequirementResource($address);
+        $requirement = Requirement::create($request->all());
+        $requirement->refresh();
+        return new RequirementResource($requirement);
     }
 
-    public function show(Requirement $address)
+    public function show(Requirement $requirement)
     {
-        return new RequirementResource($address);
+        return new RequirementResource($requirement);
     }
 
-    public function update(RequirementRequest $request, Requirement $address)
+    public function update(RequirementRequest $request, Requirement $requirement)
     {
-        $address->fill($request->all());
-        $address->save();
-        $address->refresh();
-        return new RequirementResource($address);
+        $requirement->fill($request->all());
+        $requirement->save();
+        $requirement->refresh();
+        return new RequirementResource($requirement);
     }
 
-    public function destroy(Requirement $address)
+    public function destroy(Requirement $requirement)
     {
-        $address->delete();
+        $requirement->delete();
         return response()->json([], 204);
     }
 }

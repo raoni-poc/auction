@@ -18,27 +18,27 @@ class RequirementTypeController extends Controller
 
     public function store(RequirementTypeRequest $request)
     {
-        $address = RequirementType::create($request->all());
-        $address->refresh();
-        return new RequirementTypeResource($address);
+        $requirementType = RequirementType::create($request->all());
+        $requirementType->refresh();
+        return new RequirementTypeResource($requirementType);
     }
 
-    public function show(RequirementType $address)
+    public function show(RequirementType $requirementType)
     {
-        return new RequirementTypeResource($address);
+        return new RequirementTypeResource($requirementType);
     }
 
-    public function update(RequirementTypeRequest $request, RequirementType $address)
+    public function update(RequirementTypeRequest $request, RequirementType $requirementType)
     {
-        $address->fill($request->all());
-        $address->save();
-        $address->refresh();
-        return new RequirementTypeResource($address);
+        $requirementType->fill($request->all());
+        $requirementType->save();
+        $requirementType->refresh();
+        return new RequirementTypeResource($requirementType);
     }
 
-    public function destroy(RequirementType $address)
+    public function destroy(RequirementType $requirementType)
     {
-        $address->delete();
+        $requirementType->delete();
         return response()->json([], 204);
     }
 }

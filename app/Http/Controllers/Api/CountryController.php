@@ -12,33 +12,33 @@ class CountryController extends Controller
 {
     public function index(Request $request)
     {
-        $address = Country::paginate();
-        return CountryResource::collection($address);
+        $country = Country::paginate();
+        return CountryResource::collection($country);
     }
 
     public function store(CountryRequest $request)
     {
-        $address = Country::create($request->all());
-        $address->refresh();
-        return new CountryResource($address);
+        $country = Country::create($request->all());
+        $country->refresh();
+        return new CountryResource($country);
     }
 
-    public function show(Country $address)
+    public function show(Country $country)
     {
-        return new CountryResource($address);
+        return new CountryResource($country);
     }
 
-    public function update(CountryRequest $request, Country $address)
+    public function update(CountryRequest $request, Country $country)
     {
-        $address->fill($request->all());
-        $address->save();
-        $address->refresh();
-        return new CountryResource($address);
+        $country->fill($request->all());
+        $country->save();
+        $country->refresh();
+        return new CountryResource($country);
     }
 
-    public function destroy(Country $address)
+    public function destroy(Country $country)
     {
-        $address->delete();
+        $country->delete();
         return response()->json([], 204);
     }
 }

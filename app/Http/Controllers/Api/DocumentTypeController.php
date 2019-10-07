@@ -12,33 +12,33 @@ class DocumentTypeController extends Controller
 {
     public function index(Request $request)
     {
-        $address = DocumentType::paginate();
-        return DocumentTypeResource::collection($address);
+        $documentType = DocumentType::paginate();
+        return DocumentTypeResource::collection($documentType);
     }
 
     public function store(DocumentTypeRequest $request)
     {
-        $address = DocumentType::create($request->all());
-        $address->refresh();
-        return new DocumentTypeResource($address);
+        $documentType = DocumentType::create($request->all());
+        $documentType->refresh();
+        return new DocumentTypeResource($documentType);
     }
 
-    public function show(DocumentType $address)
+    public function show(DocumentType $documentType)
     {
-        return new DocumentTypeResource($address);
+        return new DocumentTypeResource($documentType);
     }
 
-    public function update(DocumentTypeRequest $request, DocumentType $address)
+    public function update(DocumentTypeRequest $request, DocumentType $documentType)
     {
-        $address->fill($request->all());
-        $address->save();
-        $address->refresh();
-        return new DocumentTypeResource($address);
+        $documentType->fill($request->all());
+        $documentType->save();
+        $documentType->refresh();
+        return new DocumentTypeResource($documentType);
     }
 
-    public function destroy(DocumentType $address)
+    public function destroy(DocumentType $documentType)
     {
-        $address->delete();
+        $documentType->delete();
         return response()->json([], 204);
     }
 }
