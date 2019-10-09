@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StateRequest;
 use App\Http\Resources\StateResource;
 use App\Models\State;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class StateController extends Controller
 {

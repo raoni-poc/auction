@@ -30,7 +30,7 @@ class OfferTypeController extends Controller
 
     public function update(OfferTypeRequest $request, OfferType $offerType)
     {
-        $offerType->fill($request->all()); /*TODO o Nome já esta sendo utilizado ao editar*/
+        $offerType->fill($request->all());
         $offerType->save();
         $offerType->refresh();
         return new OfferTypeResource($offerType);

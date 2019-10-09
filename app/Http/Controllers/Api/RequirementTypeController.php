@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\RequirementTypeRequest;
 use App\Http\Resources\RequirementTypeResource;
 use App\Models\RequirementType;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class RequirementTypeController extends Controller
 {

@@ -1,6 +1,8 @@
 <?php
+
 namespace App\Interfaces;
 
-interface MarketplaceInterface{
+interface MarketplaceInterface
+{
     public function getValue(): float;
 }

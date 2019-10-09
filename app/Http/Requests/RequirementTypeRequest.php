@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\RequirementType;
 use Illuminate\Foundation\Http\FormRequest;
 
 class RequirementTypeRequest extends FormRequest
@@ -23,8 +24,15 @@ class RequirementTypeRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->getIdForUniqueValidation();
         return [
-            'name' => 'required|min:1|max:255'
+            'name' => 'required|min:1|max:255|unique:' . (new RequirementType())->getTable() . ',name' . $id,
         ];
+    }
+
+    private function getIdForUniqueValidation()
+    {
+        $route = $this->route('requirement_type');
+        return ($route && $route->id) ? $id = ",{$route->id}" : $id = '';
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Address extends Model
 {
     protected $fillable = ['city_id', 'number', 'zip_code', 'neighborhood', 'complement', 'note', 'address'];
+
     public function asOriginRoute()
     {
         return $this->hasMany(Route::class, 'address_origin_id', 'id');

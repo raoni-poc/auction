@@ -29,7 +29,7 @@ class CityController extends Controller
 
     public function update(CityRequest $request, City $city)
     {
-        $city->fill($request->all()); /* TODO erro O campo ibge code já está sendo utilizado. na edição */
+        $city->fill($request->all());
         $city->save();
         $city->refresh();
         return new CityResource($city);

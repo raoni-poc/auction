@@ -24,8 +24,15 @@ class AccountStatusRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->getIdForUniqueValidation();
         return [
-           'name' => 'required|min:3|max:50|unique:'.(new AccountStatus())->getTable().',name',
+            'name' => 'required|min:3|max:50|unique:' . (new AccountStatus())->getTable() . ',name' . $id,
         ];
+    }
+
+    private function getIdForUniqueValidation()
+    {
+        $route = $this->route('account_status');
+        return ($route && $route->id) ? $id = ",{$route->id}" : $id = '';
     }
 }

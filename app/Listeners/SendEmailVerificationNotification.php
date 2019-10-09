@@ -9,7 +9,7 @@ class SendEmailVerificationNotification
 {
     public function handle(Registered $event): void
     {
-        if ($event->user instanceof MustVerifyEmail && ! $event->user->hasVerifiedEmail()) {
+        if ($event->user instanceof MustVerifyEmail && !$event->user->hasVerifiedEmail()) {
             $event->user->sendEmailVerificationNotification();
         }
     }

@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Events\Registered;
 use App\Events\UserWasCreatedEvent;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Log;
 
 class UserController extends Controller
 {
@@ -20,7 +21,7 @@ class UserController extends Controller
         $data['account_status_id'] = 3;
         $user = User::create($data);
         $user->refresh();
-        \Log::debug(__METHOD__.' Usuário id:'.$user->id);
+        Log::debug(__METHOD__ . ' Usuário id:' . $user->id);
         event(new Registered($user));
         return new UserResource($user);
     }
@@ -41,7 +42,7 @@ class UserController extends Controller
 
     public function update(UserRequest $request, User $user)
     {
-        $user->fill($request->all()); /*TODO, Erro ao editar campo email já esta em uso*/
+        $user->fill($request->all());
         $user->save();
         return new UserResource($user);
     }

@@ -24,8 +24,15 @@ class OfferTypeRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->getIdForUniqueValidation();
         return [
-            'name' => 'required|min:1|max:255|unique:'.(new OfferType())->getTable().',name',
+            'name' => 'required|min:1|max:255|unique:' . (new OfferType())->getTable() . ',name' . $id,
         ];
+    }
+
+    private function getIdForUniqueValidation()
+    {
+        $route = $this->route('offer_type');
+        return ($route && $route->id) ? $id = ",{$route->id}" : $id = '';
     }
 }
