@@ -6,13 +6,17 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StateRequest;
 use App\Http\Resources\StateResource;
 use App\Models\State;
+use App\Http\Filters\StateFilter;
 use Illuminate\Http\Request;
 
 class StateController extends Controller
 {
     public function index(Request $request)
     {
-        $state = State::paginate();
+        $filter = app(StateFilter::class);
+        $query = State::query();
+        $filterQuery = $query->filtered($filter);
+        $state = $filter->hasFilterParameter() ? $filterQuery->get(): $filterQuery->paginate();;
         return StateResource::collection($state);
     }
 
