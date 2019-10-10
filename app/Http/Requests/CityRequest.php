@@ -26,7 +26,7 @@ class CityRequest extends FormRequest
     {
         $id = $this->getIdForUniqueValidation();
         return [
-            'ibge_code' => 'required|numeric|min:1||unique:' . (new City())->getTable() . ',ibge_code' . $id,
+            'ibge_code' => 'required|numeric|min:1|max:999999999|unique:' . (new City())->getTable() . ',ibge_code' . $id,
             'name' => 'required|min:3|max:255',
             'state_id' => 'required|numeric|min:1'
         ];
