@@ -17,6 +17,12 @@ class DatabaseSeeder extends Seeder
              StateSeeder::class,
              CitySeeder::class,
              RequirementTypeSeeder::class,
+             CompanySeeder::class,
+             UserSeeder::class,
+             DocumentTypeSeeder::class,
+             AddressSeeder::class,
+             OfferTypeSeeder::class,
+             RoleSeeder::class
          ]);
     }
 }

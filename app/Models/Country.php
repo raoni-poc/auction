@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Mnabialek\LaravelEloquentFilter\Traits\Filterable;
 
 class Country extends Model
 {
+    use Filterable;
     protected $fillable = ['name', 'abbreviation'];
 
     public function states()

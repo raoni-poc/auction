@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\OfferType;
 use Illuminate\Database\Seeder;
 
 class OfferTypeSeeder extends Seeder
@@ -11,6 +12,12 @@ class OfferTypeSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $table = (new OfferType())->getTable();
+        DB::table($table)->delete();
+        DB::table($table)->insert([
+            ['id' => 1, 'name' => 'Leilão', 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 2, 'name' => 'Leilão Sem Preço', 'created_at' => now(), 'updated_at' => now()],
+            ['id' => 3, 'name' => 'Preço Fixo', 'created_at' => now(), 'updated_at' => now()],
+        ]);
     }
 }

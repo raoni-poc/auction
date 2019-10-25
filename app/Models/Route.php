@@ -15,12 +15,12 @@ class Route extends Model
 
     public function origin()
     {
-        return $this->belongsTo(Address::class, 'id', 'address_origin_id');
+        return $this->belongsTo(Address::class, 'address_origin_id', 'id');
     }
 
     public function destination()
     {
-        return $this->belongsTo(Address::class, 'id', 'address_destination_id');
+        return $this->belongsTo(Address::class, 'address_destination_id', 'id');
     }
 
     public function nextRoute()

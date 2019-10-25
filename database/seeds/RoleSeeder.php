@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 
 class RoleSeeder extends Seeder
@@ -11,6 +12,11 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $table = (new Role())->getTable();
+        DB::table($table)->delete();
+        DB::table($table)->insert([
+            ['id' => 1, 'name' => 'Leiloeiro', 'guard_name' => 'leiloeiro', 'created_at'=> now(), 'updated_at'=> now()],
+            ['id' => 2, 'name' => 'Arrematante', 'guard_name' => 'arrematante', 'created_at'=> now(), 'updated_at'=> now()],
+        ]);
     }
 }

@@ -16,7 +16,7 @@ class StateController extends Controller
         $filter = app(StateFilter::class);
         $query = State::query();
         $filterQuery = $query->filtered($filter);
-        $state = $filter->hasFilterParameter() ? $filterQuery->get(): $filterQuery->paginate();;
+        $state = $filter->hasFilterParameter() ? $filterQuery->get(): $filterQuery->paginate();
         return StateResource::collection($state);
     }
 

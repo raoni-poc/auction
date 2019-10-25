@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Filters\CityFilter;
 use App\Http\Requests\CityRequest;
 use App\Http\Resources\CityResource;
 use App\Models\City;
@@ -11,7 +12,10 @@ class CityController extends Controller
 {
     public function index(Request $request)
     {
-        $city = City::paginate();
+        $filter = app(CityFilter::class);
+        $query = City::query();
+        $filterQuery = $query->filtered($filter);
+        $city = $filter->hasFilterParameter() ? $filterQuery->get(): $filterQuery->paginate();
         return CityResource::collection($city);
     }
 

@@ -17,6 +17,7 @@ class CreateAddressesTable extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->integer('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on('cities');
+            $table->string('name');
             $table->string('number');
             $table->string('zip_code');
             $table->string('neighborhood');

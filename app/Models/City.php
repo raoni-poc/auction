@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Mnabialek\LaravelEloquentFilter\Traits\Filterable;
 
 class City extends Model
 {
+    use Filterable;
     protected $fillable = ['ibge_code', 'name', 'state_id'];
     protected $table = 'cities';
 

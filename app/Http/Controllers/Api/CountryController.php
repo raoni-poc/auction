@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Filters\CountryFilter;
 use App\Http\Requests\CountryRequest;
 use App\Http\Resources\CountryResource;
 use App\Models\Country;
@@ -18,8 +19,10 @@ class CountryController extends Controller
 
     public function store(CountryRequest $request)
     {
-        $country = Country::create($request->all());
-        $country->refresh();
+        $filter = app(CountryFilter::class);
+        $query = Country::query();
+        $filterQuery = $query->filtered($filter);
+        $country = $filter->hasFilterParameter() ? $filterQuery->get(): $filterQuery->paginate();
         return new CountryResource($country);
     }
 
