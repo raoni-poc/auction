@@ -12,7 +12,7 @@ class DocumentTypeSeeder extends Seeder
      */
     public function run()
     {
-        $table = (new DocumentType())->getTable();
+        $table = DocumentType::table();
         DB::table($table)->delete();
         DB::table($table)->insert([
             [

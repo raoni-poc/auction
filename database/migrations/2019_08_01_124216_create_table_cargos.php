@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Cargo;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTableCargos extends Migration
 {
@@ -13,7 +14,7 @@ class CreateTableCargos extends Migration
      */
     public function up()
     {
-        Schema::create('cargos', function (Blueprint $table) {
+        Schema::create(Cargo::table(), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('cargo');
             $table->string('packing');
@@ -30,7 +31,7 @@ class CreateTableCargos extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('cargos');
+        Schema::dropIfExists(Cargo::table());
         Schema::enableForeignKeyConstraints();
     }
 }

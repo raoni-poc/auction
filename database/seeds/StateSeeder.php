@@ -13,7 +13,7 @@ class StateSeeder extends Seeder
      */
     public function run()
     {
-        $table = (new State())->getTable();
+        $table = State::table();
         DB::table($table)->delete();
         DB::table($table)->insert([
             ['id' => 1, 'country_id' => 1, 'name' => 'Acre', 'abbreviation' => 'AC'],

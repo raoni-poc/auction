@@ -22,7 +22,7 @@ class CountryController extends Controller
         $filter = app(CountryFilter::class);
         $query = Country::query();
         $filterQuery = $query->filtered($filter);
-        $country = $filter->hasFilterParameter() ? $filterQuery->get(): $filterQuery->paginate();
+        $country = $filter->hasFilterParameter() ? $filterQuery->get() : $filterQuery->paginate();
         return new CountryResource($country);
     }
 

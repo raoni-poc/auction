@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\RequirementType;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTableRequirementsTypes extends Migration
 {
@@ -13,7 +14,7 @@ class CreateTableRequirementsTypes extends Migration
      */
     public function up()
     {
-        Schema::create('requirements_types', function (Blueprint $table) {
+        Schema::create(RequirementType::table(), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->timestamps();
@@ -27,6 +28,6 @@ class CreateTableRequirementsTypes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('requirements_types');
+        Schema::dropIfExists(RequirementType::table());
     }
 }

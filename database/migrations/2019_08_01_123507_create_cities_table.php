@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\City;
+use App\Models\State;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateCitiesTable extends Migration
 {
@@ -13,12 +15,12 @@ class CreateCitiesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create(City::table(), function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('ibge_code')->unsigned()->unique();
             $table->string('name');
             $table->integer('state_id')->unsigned();
-            $table->foreign('state_id')->references('id')->on('states');
+            $table->foreign('state_id')->references('id')->on(State::table());
             $table->timestamps();
         });
     }
@@ -31,7 +33,7 @@ class CreateCitiesTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists(City::table());
         Schema::enableForeignKeyConstraints();
     }
 }

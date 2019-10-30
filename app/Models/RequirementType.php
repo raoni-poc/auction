@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 class RequirementType extends Model
 {
     protected $table = 'requirements_types';

@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 class Bid extends Model
 {
     protected $fillable = ['value', 'offer_id'];

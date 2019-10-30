@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 class Offer extends Model
 {
     protected $fillable = ['route_id', 'cargo_id', 'offer_type_id', 'start_price', 'description'];

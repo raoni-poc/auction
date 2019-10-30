@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 class OfferType extends Model
 {
     protected $table = 'offers_types';

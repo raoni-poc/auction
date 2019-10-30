@@ -12,7 +12,7 @@ class RequirementTypeSeeder extends Seeder
      */
     public function run()
     {
-        $table = (new RequirementType())->getTable();
+        $table = RequirementType::table();
         DB::table($table)->delete();
         DB::table($table)->insert([
             ['id' => 1, 'name' => 'Carga'],

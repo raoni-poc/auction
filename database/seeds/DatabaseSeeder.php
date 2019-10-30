@@ -11,18 +11,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call([
-             AccountStatusSeeder::class,
-             CountrySeeder::class,
-             StateSeeder::class,
-             CitySeeder::class,
-             RequirementTypeSeeder::class,
-             CompanySeeder::class,
-             UserSeeder::class,
-             DocumentTypeSeeder::class,
-             AddressSeeder::class,
-             OfferTypeSeeder::class,
-             RoleSeeder::class
-         ]);
+        $this->call([
+            AccountStatusSeeder::class,
+            CountrySeeder::class,
+            StateSeeder::class,
+            CitySeeder::class,
+            RequirementTypeSeeder::class,
+            CompanySeeder::class,
+            UserSeeder::class,
+            DocumentTypeSeeder::class,
+            AddressSeeder::class,
+            OfferTypeSeeder::class,
+            RoleSeeder::class,
+            CargoSeeder::class
+        ]);
     }
 }

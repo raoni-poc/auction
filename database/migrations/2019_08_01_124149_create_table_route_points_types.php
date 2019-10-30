@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\RoutePointType;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateTableRoutePointsTypes extends Migration
 {
@@ -13,7 +14,7 @@ class CreateTableRoutePointsTypes extends Migration
      */
     public function up()
     {
-        Schema::create('route_points_types', function (Blueprint $table) {
+        Schema::create(RoutePointType::table(), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
@@ -28,7 +29,7 @@ class CreateTableRoutePointsTypes extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('route_points_types');
+        Schema::dropIfExists(RoutePointType::table());
         Schema::enableForeignKeyConstraints();
     }
 }

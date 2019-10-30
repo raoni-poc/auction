@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\AccountStatus;
+use App\Models\Company;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateCompaniesTable extends Migration
 {
@@ -13,12 +15,12 @@ class CreateCompaniesTable extends Migration
      */
     public function up()
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create(Company::table(), function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->string('name');
             $table->string('trade_name');
             $table->integer('account_status_id')->unsigned();
-            $table->foreign('account_status_id')->references('id')->on('account_status');
+            $table->foreign('account_status_id')->references('id')->on(AccountStatus::table());
             $table->timestamps();
         });
     }

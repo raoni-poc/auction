@@ -12,6 +12,13 @@ class VerificationController extends Controller
 {
     use VerifiesEmails;
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('signed')->only('verify');
+        $this->middleware('throttle:6,1')->only('verify', 'resend');
+    }
+
     public function show()
     {
         //
@@ -41,12 +48,5 @@ class VerificationController extends Controller
 
         return response()->json('The notification has been resubmitted');
 //        return back()->with('resent', true);
-    }
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
 }

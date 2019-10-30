@@ -18,13 +18,13 @@ class CityResource extends JsonResource
         return [
             "id" => $this->id,
             "ibge_code" => $this->ibge_code,
-            "name"=>  $this->name,
+            "name" => $this->name,
             "state" => [
                 'id' => $this->state_id,
                 'abbreviation' => $this->state->abbreviation
             ],
-            "created_at"=> $this->created_at,
-            "updated_at"=> $this->updated_at
+            "created_at" => $this->created_at,
+            "updated_at" => $this->updated_at
         ];
         return parent::toArray($request);
     }

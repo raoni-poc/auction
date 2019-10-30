@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\AccountStatus;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAccountStatusTable extends Migration
 {
@@ -13,7 +14,7 @@ class CreateAccountStatusTable extends Migration
      */
     public function up()
     {
-        Schema::create('account_status', function (Blueprint $table) {
+        Schema::create(AccountStatus::table(), function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('name')->unique();
             $table->timestamps();
@@ -28,7 +29,7 @@ class CreateAccountStatusTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('account_status');
+        Schema::dropIfExists(AccountStatus::table());
         Schema::enableForeignKeyConstraints();
     }
 }

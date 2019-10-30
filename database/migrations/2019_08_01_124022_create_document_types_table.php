@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\DocumentType;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateDocumentTypesTable extends Migration
 {
@@ -13,7 +14,7 @@ class CreateDocumentTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('document_types', function (Blueprint $table) {
+        Schema::create(DocumentType::table(), function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('name')->unique();
             $table->timestamps();
@@ -28,7 +29,7 @@ class CreateDocumentTypesTable extends Migration
     public function down()
     {
         Schema::enableForeignKeyConstraints();
-        Schema::dropIfExists('document_types');
+        Schema::dropIfExists(DocumentType::table());
         Schema::disableForeignKeyConstraints();
     }
 }

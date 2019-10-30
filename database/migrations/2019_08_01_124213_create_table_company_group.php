@@ -1,11 +1,11 @@
 <?php
 
-use App\Models\WrapperType;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\CompanyGroup;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateTableWrappers extends Migration
+class CreateTableCompanyGroup extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,9 @@ class CreateTableWrappers extends Migration
      */
     public function up()
     {
-        Schema::create('wrappers', function (Blueprint $table) {
+        Schema::create(CompanyGroup::table(), function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('wrapper_type_id')->unsigned();
-            $table->foreign('wrapper_type_id')->references('id')->on((new  WrapperType())->getTable());
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -30,7 +29,7 @@ class CreateTableWrappers extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('wrappers');
+        Schema::dropIfExists(CompanyGroup::table());
         Schema::enableForeignKeyConstraints();
     }
 }

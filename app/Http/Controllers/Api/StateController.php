@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Filters\StateFilter;
 use App\Http\Requests\StateRequest;
 use App\Http\Resources\StateResource;
 use App\Models\State;
-use App\Http\Filters\StateFilter;
 use Illuminate\Http\Request;
 
 class StateController extends Controller
@@ -16,7 +16,7 @@ class StateController extends Controller
         $filter = app(StateFilter::class);
         $query = State::query();
         $filterQuery = $query->filtered($filter);
-        $state = $filter->hasFilterParameter() ? $filterQuery->get(): $filterQuery->paginate();
+        $state = $filter->hasFilterParameter() ? $filterQuery->get() : $filterQuery->paginate();
         return StateResource::collection($state);
     }
 

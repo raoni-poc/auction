@@ -1,8 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Cargo;
+use App\Models\Offer;
+use App\Models\OfferType;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateOffersTable extends Migration
 {
@@ -13,18 +16,16 @@ class CreateOffersTable extends Migration
      */
     public function up()
     {
-        Schema::create('offers', function (Blueprint $table) {
+        Schema::create(Offer::table(), function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->bigInteger('route_id')->unsigned();
             $table->bigInteger('cargo_id')->unsigned();
             $table->bigInteger('offer_type_id')->unsigned();
             $table->float('start_price');
             $table->float('first_positive_price');
             $table->float('current_price');
             $table->text('description');
-            $table->foreign('route_id')->references('id')->on('routes');
-            $table->foreign('cargo_id')->references('id')->on('cargos');
-            $table->foreign('offer_type_id')->references('id')->on('offers_types');
+            $table->foreign('cargo_id')->references('id')->on(Cargo::table());
+            $table->foreign('offer_type_id')->references('id')->on(OfferType::table());
             $table->timestamps();
         });
     }
@@ -37,7 +38,7 @@ class CreateOffersTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('offers');
+        Schema::dropIfExists(Offer::table());
         Schema::enableForeignKeyConstraints();
     }
 }

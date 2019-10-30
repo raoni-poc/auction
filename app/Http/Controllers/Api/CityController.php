@@ -15,7 +15,7 @@ class CityController extends Controller
         $filter = app(CityFilter::class);
         $query = City::query();
         $filterQuery = $query->filtered($filter);
-        $city = $filter->hasFilterParameter() ? $filterQuery->get(): $filterQuery->paginate();
+        $city = $filter->hasFilterParameter() ? $filterQuery->get() : $filterQuery->paginate();
         return CityResource::collection($city);
     }
 

@@ -13,7 +13,7 @@ class CitySeeder extends Seeder
      */
     public function run()
     {
-        $table = (new City())->getTable();
+        $table = City::table();
         DB::table($table)->delete();
         DB::table($table)->insert([
             ['state_id' => 1, 'ibge_code' => '1200013', 'name' => 'Acrelândia'],

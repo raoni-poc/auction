@@ -20,6 +20,17 @@ class VerifyEmail extends Notification
     public static $toMailCallback;
 
     /**
+     * Set a callback that should be used when building the notification mail message.
+     *
+     * @param Closure $callback
+     * @return void
+     */
+    public static function toMailUsing($callback)
+    {
+        static::$toMailCallback = $callback;
+    }
+
+    /**
      * Get the notification's channels.
      *
      * @param mixed $notifiable
@@ -64,16 +75,5 @@ class VerifyEmail extends Notification
             Carbon::now()->addMinutes(Config::get('auth.verification.expire', 120)),
             ['id' => $notifiable->getKey()]
         );
-    }
-
-    /**
-     * Set a callback that should be used when building the notification mail message.
-     *
-     * @param Closure $callback
-     * @return void
-     */
-    public static function toMailUsing($callback)
-    {
-        static::$toMailCallback = $callback;
     }
 }

@@ -13,7 +13,7 @@ class AccountStatusSeeder extends Seeder
      */
     public function run()
     {
-        $table = (new AccountStatus())->getTable();
+        $table = AccountStatus::table();
         DB::table($table)->delete();
         DB::table($table)->insert([
             ['id' => 1, 'name' => 'Ativo'],

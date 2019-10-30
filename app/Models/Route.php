@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 class Route extends Model
 {
     protected $fillable = ['address_origin_id', 'address_destination_id', 'next_route_id'];

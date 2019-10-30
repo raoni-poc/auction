@@ -13,7 +13,7 @@ class CountrySeeder extends Seeder
      */
     public function run()
     {
-        $table = (new Country())->getTable();
+        $table = Country::table();
         DB::table($table)->delete();
         DB::table($table)->insert([
             'id' => 1,

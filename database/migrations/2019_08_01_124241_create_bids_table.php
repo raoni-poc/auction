@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
+use App\Models\Bid;
+use App\Models\Offer;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateBidsTable extends Migration
 {
@@ -13,11 +15,11 @@ class CreateBidsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bids', function (Blueprint $table) {
+        Schema::create(Bid::table(), function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->float('value');
             $table->bigInteger('offer_id')->unsigned();
-            $table->foreign('offer_id')->references('id')->on('offers');
+            $table->foreign('offer_id')->references('id')->on(Offer::table());
             $table->timestamps();
         });
     }
@@ -30,7 +32,7 @@ class CreateBidsTable extends Migration
     public function down()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::dropIfExists('bids');
+        Schema::dropIfExists(Bid::table());
         Schema::enableForeignKeyConstraints();
     }
 }

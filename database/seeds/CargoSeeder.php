@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Cargo;
 use Illuminate\Database\Seeder;
 
 class CargoSeeder extends Seeder
@@ -11,6 +12,6 @@ class CargoSeeder extends Seeder
      */
     public function run()
     {
-        //
+        factory(Cargo::class, 5)->create();
     }
 }

@@ -12,7 +12,7 @@ class OfferTypeSeeder extends Seeder
      */
     public function run()
     {
-        $table = (new OfferType())->getTable();
+        $table = OfferType::table();
         DB::table($table)->delete();
         DB::table($table)->insert([
             ['id' => 1, 'name' => 'Leilão', 'created_at' => now(), 'updated_at' => now()],
