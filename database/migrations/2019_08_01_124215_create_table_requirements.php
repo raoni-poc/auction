@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Company;
 use App\Models\Requirement;
 use App\Models\RequirementType;
 use Illuminate\Database\Migrations\Migration;
@@ -18,6 +19,8 @@ class CreateTableRequirements extends Migration
         Schema::create(Requirement::table(), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
+           $table->bigInteger('company_owner_id')->unsigned();
+            $table->foreign('company_owner_id')->references('id')->on(Company::table());
             $table->bigInteger('requirement_type_id')->unsigned();
             $table->foreign('requirement_type_id')->references('id')->on(RequirementType::table());
             $table->timestamps();

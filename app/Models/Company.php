@@ -10,4 +10,14 @@ class Company extends Model
     {
         return $this->belongsTo(AccountStatus::class);
     }
+
+    public function companiesGroups()
+    {
+        return $this->belongsToMany(Company::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

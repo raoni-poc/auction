@@ -1,5 +1,6 @@
 *<?php
 
+use App\Models\Company;
 use App\Models\Document;
 use App\Models\DocumentType;
 use Illuminate\Database\Migrations\Migration;
@@ -17,9 +18,11 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create(Document::table(), function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
-            $table->string('content');
             $table->integer('document_type_id')->unsigned();
             $table->foreign('document_type_id')->references('id')->on(DocumentType::table());
+           $table->bigInteger('company_owner_id')->unsigned();
+            $table->foreign('company_owner_id')->references('id')->on(Company::table());
+            $table->string('content');
             $table->timestamps();
         });
     }

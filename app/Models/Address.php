@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use App\Traits\BelongsToCompany;
+
 class Address extends Model
 {
+    use BelongsToCompany;
+
     protected $fillable = ['city_id', 'name', 'number', 'zip_code', 'neighborhood', 'complement', 'note', 'address'];
 
     public function asOriginRoute()

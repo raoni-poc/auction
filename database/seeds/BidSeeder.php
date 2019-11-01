@@ -11,6 +11,6 @@ class BidSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

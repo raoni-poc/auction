@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Cargo;
+use App\Models\Company;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,6 +17,8 @@ class CreateTableCargos extends Migration
     {
         Schema::create(Cargo::table(), function (Blueprint $table) {
             $table->bigIncrements('id');
+           $table->bigInteger('company_owner_id')->unsigned();
+            $table->foreign('company_owner_id')->references('id')->on(Company::table());
             $table->string('cargo');
             $table->string('packing');
             $table->text('description');

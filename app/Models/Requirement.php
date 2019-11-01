@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use App\Traits\BelongsToCompany;
+
 class Requirement extends Model
 {
+    use BelongsToCompany;
     protected $fillable = ['name', 'requirement_type_id'];
 
     public function cargos()

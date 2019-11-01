@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use App\Traits\BelongsToCompany;
+
 class Route extends Model
 {
+    use BelongsToCompany;
     protected $fillable = ['address_origin_id', 'address_destination_id', 'next_route_id'];
 
     public function offers()

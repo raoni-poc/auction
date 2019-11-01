@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Cargo;
+use App\Models\Company;
 use App\Models\Offer;
 use App\Models\OfferType;
 use Illuminate\Database\Migrations\Migration;
@@ -20,12 +21,14 @@ class CreateOffersTable extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->bigInteger('cargo_id')->unsigned();
             $table->bigInteger('offer_type_id')->unsigned();
+           $table->bigInteger('company_owner_id')->unsigned();
             $table->float('start_price');
             $table->float('first_positive_price');
             $table->float('current_price');
             $table->text('description');
             $table->foreign('cargo_id')->references('id')->on(Cargo::table());
             $table->foreign('offer_type_id')->references('id')->on(OfferType::table());
+            $table->foreign('company_owner_id')->references('id')->on(Company::table());
             $table->timestamps();
         });
     }

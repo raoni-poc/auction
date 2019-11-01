@@ -2,6 +2,7 @@
 
 use App\Models\Address;
 use App\Models\City;
+use App\Models\Company;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -19,6 +20,8 @@ class CreateAddressesTable extends Migration
             $table->bigIncrements('id')->unsigned();
             $table->integer('city_id')->unsigned();
             $table->foreign('city_id')->references('id')->on(City::table());
+           $table->bigInteger('company_owner_id')->unsigned();
+            $table->foreign('company_owner_id')->references('id')->on(Company::table());
             $table->string('name');
             $table->string('number');
             $table->string('zip_code');
